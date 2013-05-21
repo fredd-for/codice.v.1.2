@@ -113,7 +113,7 @@ while ($rs = $stmt->fetch(PDO::FETCH_OBJ)) {
     $pdf->SetFontSize(9);
     $pdf->Cell(30, 10, 'REFERENCIA:', 1,FALSE,'L');    
     $pdf->SetFont('helvetica', '', 9);             
-    if(strlen($rs->institucion_remitente)>120)
+    if(strlen($rs->referencia)>120)
     {
        $pdf->MultiCell(170, 5, $rs->referencia, 1,'L'); 
     }

