@@ -99,4 +99,3 @@ $padre =  $stmt->fetch(PDO::FETCH_OBJ);
     $pdf->MultiCell(165, 10, $txt);
     
 $pdf->Output();
-

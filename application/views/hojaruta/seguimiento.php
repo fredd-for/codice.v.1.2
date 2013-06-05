@@ -63,7 +63,9 @@
 <h2 class="subtitulo">Seguimiento<br/><span>Seguimiento del proceso</span></h2>
 
 <div id="agrupado" style="display:none; text-align: center;" >
-    <p><img src="/media/images/agrupado.png" alt="" /><h2>AGRUPADO</h2></p>
+    <p><img src="/media/images/agrupado.png" alt="" /><h2>AGRUPADO</h2>
+        <a href="/print_agrupado.php?nur=<?php echo $detalle['nur'];?>" class="uiButton" style="float: right;" target='_blank'><img src="/media/images/print.png" alt=""/>Imprimir</a>
+    </p>
 </div>
 <?php if(isset($agrupado->id)):?>
 <div id="padre" style="text-align: center;" >

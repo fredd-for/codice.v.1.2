@@ -1,6 +1,6 @@
 <h2 class="subtitulo">Detalle<br/><span>correspondencia agrupada</span></h2>
 </hr>
-<a href="/print_agrupado.php?nur=<?php echo $padre->nur;?>" class="uiButton" style="float: right;" ><img src="/media/images/print.png" alt=""/>Imprimir</a>
+<a href="/print_agrupado.php?nur=<?php echo $padre->nur;?>" class="uiButton" style="float: right;" target='_blank'><img src="/media/images/print.png" alt=""/>Imprimir</a>
 <br/>
 <h2 style="border-bottom: 1px dotted #999; padding-bottom: 4px;  " >Principal</h2>
 <table id="theTable">
