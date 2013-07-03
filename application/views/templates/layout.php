@@ -80,7 +80,7 @@
             <div id="print_enviados" class="oculto archive">
             <ul>
                 <li>
-                    <a href="#" id="print_hr" ><img src="/media/images/excel.png" align="absmiddle"  /><b> Generar Excel</b></a>         
+                    <a href="#" id="print_hr"><img src="/media/images/group.png" align="absmiddle"  /><b> Generar PDF</b></a>         
                 </li>                
              </ul>
             <div id="selecciones2" ></div>

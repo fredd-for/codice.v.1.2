@@ -84,7 +84,8 @@ class Model_Seguimiento extends ORM{
               INNER JOIN procesos p ON p.id=d.id_proceso												
               WHERE s.estado=1
               AND s.derivado_por='$id_user'
-              AND d.original=1"; // important
+              AND d.original=1 
+              ORDER BY s.fecha_emision ASC"; // important
         return $this->_db->query(Database::SELECT, $sql,TRUE);        
     }
     public function seguimientox($id){

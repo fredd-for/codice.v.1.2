@@ -1,19 +1,19 @@
 <?php
 if($_POST):
-$id_segs=array_values($_POST['id_seg']);
+    $id_segs=array_values($_POST['id_seg']);
 //print_r($id_segs);
 require_once '../db/dbclass.php';
 $dbh=New db();  
 $sql="SELECT s.nur, s.a_oficina,s.nombre_receptor,cargo_receptor,s.fecha_emision,s.oficial,d.cite_original, d.referencia,s.proveido FROM seguimiento s 
-    INNER JOIN nurs_documentos n ON s.nur=n.nur
-    INNER JOIN documentos d ON n.id_documento=d.id
-    WHERE d.original='1'
-    AND  s.id IN (";
-foreach ($_POST['id_seg'] as $k=>$v):
-    $sql.=$v.", ";
-endforeach;
-$sql=substr($sql,0, -2);
-$sql.=")";
+INNER JOIN nurs_documentos n ON s.nur=n.nur
+INNER JOIN documentos d ON n.id_documento=d.id
+WHERE d.original='1'
+AND  s.id IN (";
+    foreach ($_POST['id_seg'] as $k=>$v):
+        $sql.=$v.", ";
+    endforeach;
+    $sql=substr($sql,0, -2);
+    $sql.=")";
 $stmt = $dbh->prepare($sql);
 $data=array();
 $i=1;
@@ -23,18 +23,18 @@ while ($rs = $stmt->fetch(PDO::FETCH_OBJ))
 {    
 // Display this code source is asked.
 //if (isset($_GET['source'])) exit('<!DOCTYPE HTML><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>OpenTBS plug-in for TinyButStrong - demo source</title></head><body>'.highlight_file(__FILE__,true).'</body></html>');
-$data[]=array(
-    'i'=>$i,    
-    'nur'=>$rs->nur,    
-    'oficina'=>$rs->a_oficina,    
-    'nombre'=>$rs->nombre_receptor,
-    'cargo'=>$rs->cargo_receptor,
-    'cite'=>$rs->cite_original,
-    'proveido'=>$rs->proveido,
-    'oficial'=>$oficial[$rs->oficial],
-    'fecha'=>date('d/m/Y',  strtotime($rs->fecha_emision))
-);
-$i++;
+    $data[]=array(
+        'i'=>$i,    
+        'nur'=>$rs->nur,    
+        'oficina'=>$rs->a_oficina,    
+        'nombre'=>$rs->nombre_receptor,
+        'cargo'=>$rs->cargo_receptor,
+        'cite'=>$rs->cite_original,
+        'proveido'=>$rs->proveido,
+        'oficial'=>$oficial[$rs->oficial],
+        'fecha'=>date('d/m/Y',  strtotime($rs->fecha_emision))
+        );
+    $i++;
 }
 
 // load the TinyButStrong libraries

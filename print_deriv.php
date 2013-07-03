@@ -15,7 +15,8 @@ $dbh=New db();
 $id=$_GET['id'];
 $p=$_GET['p'];
 
-$stmt = $dbh->prepare("SELECT s.id, n.nur,d.codigo,d.referencia,s.nombre_receptor,s.cargo_receptor,s.a_oficina,s.fecha_emision,s.proveido FROM seguimiento s
+$stmt = $dbh->prepare("SELECT s.id, n.nur,d.codigo,d.referencia,s.nombre_receptor,s.cargo_receptor,s.a_oficina,s.fecha_emision,s.proveido,s.oficial 
+            FROM seguimiento s
             INNER JOIN nurs n ON s.nur=n.nur
             INNER JOIN users u ON s.derivado_a=u.id
             INNER JOIN oficinas o ON u.id_oficina=o.id
@@ -23,7 +24,7 @@ $stmt = $dbh->prepare("SELECT s.id, n.nur,d.codigo,d.referencia,s.nombre_recepto
             WHERE s.id='$id'
             and d.original='1'");        
 $stmt->execute();        
-
+$oficial=array(0=>'Copia',1=>'Oficial');
 // create new PDF document
 $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, 'LETTER', true, 'UTF-8', false);
 
@@ -94,6 +95,12 @@ try {
      $pdf->Cell(115, 5, $rs->cargo_receptor,'BR',0,'C');
      $pdf->SetXY(170,$p);
      $pdf->Cell(40, 35, '','TBR',0,'C');
+
+    $pdf->SetTextColor(243,249,255);
+    $pdf->SetFontSize(18);
+    $pdf->SetXY(170,$p);
+    $pdf->Cell(40, 35, $oficial[$rs->oficial], 0,FALSE,'C');
+
     }
     
     //echo "<BR><B>".date("r")."</B>";
