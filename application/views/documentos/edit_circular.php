@@ -215,15 +215,15 @@
                                 <p>
                                     <?php
                                     echo Form::label('remitente', 'Remitente:', array('class' => 'form'));
-                                    echo Form::input('remitente', $user->nombre, array('id' => 'remitente', 'size' => 35, 'class' => 'required'));
+                                    echo Form::input('remitente', $documento->nombre_remitente, array('id' => 'remitente', 'size' => 35, 'class' => 'required'));
                                     ?>            
                                     <?php
                                     //echo Form::label('mosca','Mosca:');
-                                    echo Form::input('mosca', $user->mosca, array('id' => 'mosca', 'size' => 5));
+                                    echo Form::input('mosca', $documento->mosca_remitente, array('id' => 'mosca', 'size' => 5));
                                     ?>
                                     <?php
                                     echo Form::label('cargo', 'Cargo Remitente:', array('class' => 'form'));
-                                    echo Form::input('cargo_rem', $user->cargo, array('id' => 'cargo_rem', 'size' => 40, 'class' => 'required'));
+                                    echo Form::input('cargo_rem', $documento->cargo_remitente, array('id' => 'cargo_rem', 'size' => 40, 'class' => 'required'));
                                     ?>
                                 </p>
                             </td>
