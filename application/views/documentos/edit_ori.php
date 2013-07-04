@@ -1,30 +1,26 @@
-<script>
-tinymce.init({
-    selector: "textarea#descripcion",
-    theme: "modern",
-    language : "es",
-   // width: 595,
-    height: 350,
-    plugins: [
-         "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
-         "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-         "save table contextmenu directionality emoticons template paste textcolor"
-   ],
-   content_css: "css/content.css",
-   toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons", 
-   style_formats: [
-        {title: 'Bold text', inline: 'b'},
-        {title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
-        {title: 'Red header', block: 'h1', styles: {color: '#ff0000'}},
-        {title: 'Example 1', inline: 'span', classes: 'example1'},
-        {title: 'Example 2', inline: 'span', classes: 'example2'},
-        {title: 'Table styles'},
-        {title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
-    ]
- }); 
-</script>
 <script type="text/javascript">   
-   
+    CKEDITOR.config.scayt_autoStartup = false;  
+    // needs to migrate your pages to licensed server version from trial          
+    CKEDITOR.config.scayt_maxSuggestions = 4;  
+    // needs to migrate to hosted service from trial  
+    // set up encrypted customer id           
+    // set up SCAYT default language   
+    CKEDITOR.config.scayt_sLang ="es_ES"; 
+    function InsertHTML(imagen)
+    {
+        // Get the editor instance that we want to interact with.
+        var oEditor = CKEDITOR.instances.descripcion;
+        //var value = document.getElementById( 'plainArea' ).value;
+        var value='<img src="'+imagen+'" />';
+        // Check the active editing mode.
+        if ( oEditor.mode == 'wysiwyg' )
+        {
+            // Insert the desired HTML.
+            oEditor.insertHtml( value );
+        }
+        else
+            alert( 'You must be on WYSIWYG mode!' );
+    }
     $(function(){
         var tabContainers=$('div.tabs > div');
         tabContainers.hide().filter(':first').show();
@@ -38,7 +34,11 @@ tinymce.init({
     
     
         $('#frmEditar').validate();
-        
+        var config={
+            toolbar : [ ['Maximize','Preview','SelectAll','Cut', 'Copy','Paste', 'Pagebreak','PasteFromWord','PasteText','-','Bold','Italic','Underline','FontSize','Font','TextColor','BGColor',,'NumberedList','BulletedList'],
+                ['Undo','Redo','-','SpellChecker','Scayt','-','Find','Replace','-','Table','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock']]
+        }
+        $('textarea#descripcion').ckeditor(config);
         $('#insertarImagen').click(function(){
             var left=screen.availWidth;
             var top=screen.availHeight;
@@ -321,7 +321,7 @@ echo Form::label('referencia', 'Referencia:', array('class' => 'form'));
                         </tr>
                     </table>
 
-                    <div style="width: 800px;float: left; ">
+                    <div style="width: 595px;float: left; ">
 <?php
 echo Form::textarea('descripcion', $documento->contenido, array('id' => 'descripcion', 'cols' => 50, 'rows' => 20));
 ?>

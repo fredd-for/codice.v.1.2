@@ -127,7 +127,8 @@ class Controller_documento extends Controller_DefaultTemplate {
         foreach ($procesos as $p) {
             $options[$p->id] = $p->proceso;
         }
-        $this->template->scripts = array('ckeditor/adapters/jquery.js', 'ckeditor/ckeditor.js');
+        //$this->template->scripts = array('ckeditor/adapters/jquery.js', 'ckeditor/ckeditor.js');
+        $this->template->scripts = array('tinymce/tinymce.min.js');
         $this->template->title .= ' | Crear ' . $tipo->tipo;
         if ($t == 'circular') {
             $oficina = ORM::factory('oficinas')->where('id', '=', $this->user->id_oficina)->find();
@@ -362,7 +363,8 @@ class Controller_documento extends Controller_DefaultTemplate {
             }
             $this->template->title .= ' | ' . $documento->codigo;
             $this->template->styles = array('media/css/tablas.css' => 'screen');
-            $this->template->scripts = array('ckeditor/adapters/jquery.js', 'ckeditor/ckeditor.js', 'media/js/jquery.si.js');
+            //$this->template->scripts = array('ckeditor/adapters/jquery.js', 'ckeditor/ckeditor.js', 'media/js/jquery.si.js');
+            $this->template->scripts = array('tinymce/tinymce.min.js');
 
             if ($tipo->tipo == 'Circular') {
                 $oficina = ORM::factory('oficinas')->where('id', '=', $this->user->id_oficina)->find();
