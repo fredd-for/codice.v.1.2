@@ -26,7 +26,7 @@ INNER JOIN entidades AS c ON b.id_entidad = c.id WHERE a.id = '$id'");
             }
             $id_entidad=$rs2->id;
         }
-        if($id_entidad<>2){
+        if($id_entidad<>2 && $id_entidad<>4){
         $this->Image($image_file, 89, 5, 40, 23, 'PNG');
         }
         $this->SetFont('helvetica', 'B', 20);
@@ -50,7 +50,7 @@ INNER JOIN entidades AS c ON b.id_entidad = c.id WHERE a.id = '$id'");
             $pie2 = $rs->pie_2;
             $id_entidad=$rs->id;
         }
-        if($id_entidad<>2){
+        if($id_entidad<>2 && $id_entidad<>4){
         // Linea vertical negra
         $style = array('width' => 1.5, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0));
         $this->Line(140, 257, 140, 272, $style);
@@ -86,8 +86,22 @@ $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 // set default monospaced font
 $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
+$dbh = New db();
+$sql="SELECT d.id_entidad FROM documentos d WHERE d.id='$id'";
+$stmt = $dbh->prepare($sql);
+$stmt->execute();
+while ($rs = $stmt->fetch(PDO::FETCH_OBJ)) {
+            $id_entidad=$rs->id_entidad;
+        } 
+$margin_top=33;
+if($id_entidad==2){
+    $margin_top=33;
+}elseif ($id_entidad==4) {
+    $margin_top=60;
+}
+
 //set margins
-$pdf->SetMargins(20, 33, 20);
+$pdf->SetMargins(20, $margin_top, 20);
 //$pdf->SetMargins(20, PDF_MARGIN_TOP, 20);
 $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
 $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
