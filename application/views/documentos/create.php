@@ -11,7 +11,7 @@ tinymce.init({
          "save table contextmenu directionality emoticons template paste textcolor"
    ],
    content_css: "css/content.css",
-   toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons", 
+   toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor | fullscreen",
    style_formats: [
         {title: 'Bold text', inline: 'b'},
         {title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
@@ -90,7 +90,7 @@ $('#crear').click(function(){
 </script>
 <h2 class="subtitulo">Crear <?php echo $documento->tipo;?> <br/><span>LLENE CORRECTAMENTE LOS DATOS EN EL FORMULARIO</span></h2>
 <div class="formulario">
-    <form action="/codice/documento/crear/<?php echo $documento->action;?>" method="post" id="frmCreate">
+    <form action="/documento/crear/<?php echo $documento->action;?>" method="post" id="frmCreate">
     <br/>
     <fieldset>
         <?php if($tipo->tipo=='Carta'):

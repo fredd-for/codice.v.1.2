@@ -21,8 +21,7 @@ $(function(){
     <?php endforeach;?>   
 </div>
  <?php endif;?>
-<form method="post" action="/codice/admin/carpetas/save" id="frm">
-
+<form method="post" action="/admin/carpetas/save" id="frm">
     <?php     
     echo Form::hidden('id',$carpeta->id);
     ?>

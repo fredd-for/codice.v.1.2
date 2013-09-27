@@ -24,7 +24,7 @@ $(function(){
 <h2 class="subtitulo">Carpetas<br/><span>LISTA GENERAL DE CARPETAS</span></h2>
 <p style="margin: 5px auto; font-size: 10px; font-weight: normal; "> FILTRAR/BUSCAR: <input type="text" id="FilterTextBox" name="FilterTextBox" size="40" />
 </p>
-<div style="float: right;"><a href="/codice/admin/carpetas/form" class="uibutton">+ Nueva Carpeta</a></div>
+<div style="float: right;"><a href="/admin/carpetas/form" class="uibutton">+ Nueva Carpeta</a></div>
 <br/>
 <br/>
 <table id="theTable">

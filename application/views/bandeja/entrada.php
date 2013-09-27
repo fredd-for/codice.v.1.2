@@ -163,7 +163,7 @@ $('a.link2').click(function(){
 <div id="entrada">
     <h2 style="text-align: center; ">Lista de correspondencia para recepcionar</h2>
     <br/>
-<form action="/codice/bandeja/doa" method="post" id="doa" >    
+<form action="/bandeja/doa" method="post" id="doa" >    
 <?php foreach($norecibidos as $s): ?>
 <div class="bandeja tipo<?php echo $s->oficial;?>" style="display:inline-block;" oficina="<?php echo $s->de_oficina?>" proceso="<?php echo $s->referencia?>"  fecha="<?php echo $s->fecha;?>" hojaruta="<?php echo $s->nur;?>" >
     <table class="oficial<?php echo $s->oficial;?>">

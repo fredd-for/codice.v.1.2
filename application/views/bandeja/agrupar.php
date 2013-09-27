@@ -21,7 +21,7 @@ $(function(){
 
 </script>
 <h2 class="subtitulo">Agrupar correspondencia<br/><span>Seleccione la hoja de ruta que sera la principal</span></h2>
-<form method="post" action="/codice/bandeja/agruparf" id="frmArchivar"> 
+<form method="post" action="/bandeja/agruparf" id="frmArchivar"> 
 <table style="margin: 0 auto;">
 <tr>
 <td valign="top" style=" width: 250px; padding-right: 10px; border-right: 1px solid #ccc;border-left: 1px solid #ccc; font-size: 12px; text-align: center; " >

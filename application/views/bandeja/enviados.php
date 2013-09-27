@@ -139,7 +139,7 @@
 
     <div id="entrada">
         <h2 style=" text-align: center; color: #3263A0; text-transform: uppercase; font-size: 10px;">Lista de correspondencia enviada</h2>
-        <form method="post" action="/codice/print_enviados.php" id="frmprint">    
+        <form method="post" action="/print_enviados.php" id="frmprint">    
             <?php foreach ($entrada as $s): ?>
                 <div class="bandeja tipo<?php echo $s->oficial; ?>" style="display:inline-block;">
                     <table class="oficial<?php echo $s->oficial; ?>">

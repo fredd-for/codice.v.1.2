@@ -9,7 +9,7 @@ $(function(){
     $.ajax({
 	            type: "POST",
 	            data: { username : username },
-	            url: "/codice/ajax/username",
+	            url: "/ajax/username",
 	            dataType: "json",
 	            success: function(data)
 	            {   
@@ -27,7 +27,7 @@ $(function(){
         $.ajax({
 	            type: "POST",
 	            data: { email : email },
-	            url: "/codice/ajax/email",
+	            url: "/ajax/email",
 	            dataType: "json",
 	            success: function(data)
 	            {                      
@@ -45,7 +45,7 @@ $(function(){
 //        $.ajax({
 //	            type: "POST",
 //	            data: { username : username },
-//	            url: "/codice/ajax/email",
+//	            url: "/ajax/email",
 //	            dataType: "json",
 //	            success: function(data)
 //	            {                      
